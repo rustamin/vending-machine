@@ -8,10 +8,11 @@ import (
 	"github.com/rustamin/vending-machine/internal/good"
 	"github.com/rustamin/vending-machine/internal/helper"
 	"github.com/rustamin/vending-machine/internal/item"
+	"github.com/rustamin/vending-machine/internal/returngate"
 	"github.com/rustamin/vending-machine/model"
 )
 
-func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []model.Item) {
+func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []model.Item, returnCoins []model.Coin) {
 
 	helper.Line()
 	amount.Menu(balance)
@@ -32,7 +33,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 
 		fmt.Println("BALANCE IN MAIN MENU")
 		fmt.Println(balance)
-		Menu(goods, coins, balance, chooseItem)
+		Menu(goods, coins, balance, chooseItem, returnCoins)
 	} else if (input)[0] == 2 {
 		chooseItem, err := item.UpdateChooseItem(chooseItem, goods, (input)[1], balance, coins)
 		if err != nil {
@@ -40,14 +41,17 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 		}
 		fmt.Println("CHOSE ITEM IN MAIN MENU")
 		fmt.Println(chooseItem)
-		Menu(goods, coins, balance, chooseItem)
+		Menu(goods, coins, balance, chooseItem, returnCoins)
 	} else if (input)[0] == 3 {
 		// GET ITEM
 		chooseItem, goods, err := item.GetChooseItem(chooseItem, goods, balance, coins)
 		if err != nil {
 			fmt.Println(err)
 		}
-		Menu(goods, coins, balance, chooseItem)
+		Menu(goods, coins, balance, chooseItem, returnCoins)
+	} else if (input)[0] == 4 {
+		coins, returnCoins := returngate.UpdateReturnGate(balance, coins)
+		Menu(goods, coins, balance, chooseItem, returnCoins)
 	}
 
 	fmt.Println("balance adlah")

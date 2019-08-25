@@ -43,6 +43,7 @@ func main() {
 
 	var balance int
 	chooseItem := make([]model.Item, 0)
+	returnCoins := make([]model.Coin, 0)
 
-	mainmenu.Menu(goods, coins, &balance, chooseItem)
+	mainmenu.Menu(goods, coins, &balance, chooseItem, returnCoins)
 }
