@@ -6,6 +6,24 @@ import (
 )
 
 func main() {
+	coins := make([]*model.Coin, 0)
+	coins = append(coins, &model.Coin{
+		Nominal: 10,
+		Total:   0,
+	})
+	coins = append(coins, &model.Coin{
+		Nominal: 50,
+		Total:   0,
+	})
+	coins = append(coins, &model.Coin{
+		Nominal: 100,
+		Total:   0,
+	})
+	coins = append(coins, &model.Coin{
+		Nominal: 500,
+		Total:   0,
+	})
+
 	goods := make([]*model.Good, 0)
 	goods = append(goods, &model.Good{
 		Name:  "Canned coffee",
@@ -26,5 +44,5 @@ func main() {
 	var balance int
 	chooseItem := make([]model.Item, 0)
 
-	mainmenu.Menu(goods, &balance, chooseItem)
+	mainmenu.Menu(goods, coins, &balance, chooseItem)
 }

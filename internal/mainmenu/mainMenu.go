@@ -10,7 +10,7 @@ import (
 	"github.com/rustamin/vending-machine/model"
 )
 
-func Menu(goods []*model.Good, balance *int, chooseItem []model.Item) {
+func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []model.Item) {
 
 	helper.Line()
 	amount.Menu(balance)
@@ -23,16 +23,23 @@ func Menu(goods []*model.Good, balance *int, chooseItem []model.Item) {
 	fmt.Scanln(&input[0], &input[1])
 
 	if (input)[0] == 1 {
-		amount.UpdateAmount(balance, (input)[1])
+		coins, err := amount.UpdateAmountAndCoin(coins, balance, (input)[1])
+		if err != nil {
+			fmt.Println(err)
+		}
+
 		fmt.Println("BALANCE IN MAIN MENU")
 		fmt.Println(balance)
-		Menu(goods, balance, chooseItem)
+		Menu(goods, coins, balance, chooseItem)
 	}
 	if (input)[0] == 2 {
-		chooseItem = item.UpdateChooseItem(chooseItem, goods, (input)[1])
+		chooseItem, err := item.UpdateChooseItem(chooseItem, goods, (input)[1], balance)
+		if err != nil {
+			fmt.Println(err)
+		}
 		fmt.Println("CHOSE ITEM IN MAIN MENU")
 		fmt.Println(chooseItem)
-		Menu(goods, balance, chooseItem)
+		Menu(goods, coins, balance, chooseItem)
 	}
 
 	fmt.Println("balance adlah")
