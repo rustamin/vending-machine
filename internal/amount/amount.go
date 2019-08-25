@@ -6,8 +6,6 @@ import (
 )
 
 func Menu(amount *int) {
-	fmt.Println("balance")
-	fmt.Println(*amount)
 	msgAmount := "[Input amount]     " + strconv.Itoa(*amount) + " JPY"
 	fmt.Println(msgAmount)
 }

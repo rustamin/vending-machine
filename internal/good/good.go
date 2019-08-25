@@ -19,7 +19,6 @@ func List(goods []*model.Good) {
 
 		if i == 0 {
 			list += "   " + item
-			elem.Price = 100000
 		} else {
 			list += "\n                   " + item
 		}
