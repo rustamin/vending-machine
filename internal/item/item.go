@@ -31,6 +31,8 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 			// TODO: validate if good is not found
 			if *balance-elem.Price < 0 {
 				return chooseItem, errors.New("Balance is not enough. Insert more coins")
+			} else if elem.Stock == 0 {
+				return chooseItem, errors.New("Stock is empty. Please choose another good")
 			}
 
 			// *balance = *balance - elem.Price
