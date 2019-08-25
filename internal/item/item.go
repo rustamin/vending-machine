@@ -23,12 +23,6 @@ func List(chooseItem []model.Item) {
 }
 
 func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, balance *int, coins []*model.Coin) ([]model.Item, error) {
-
-	err := change.ValidateCanDoChange(chooseItem, balance, coins)
-	if err != nil {
-		return chooseItem, err
-	}
-
 	item := new(model.Item)
 
 	for i, elem := range goods {
@@ -39,6 +33,17 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 				return chooseItem, errors.New("Balance is not enough. Insert more coins")
 			} else if elem.Stock == 0 {
 				return chooseItem, errors.New("Stock is empty. Please choose another good")
+			}
+
+			tempChooseItem := make([]model.Item, 0)
+			tempChooseItem = append(tempChooseItem, model.Item{
+				Name:  elem.Name,
+				Price: elem.Price,
+			})
+
+			err := change.ValidateCanDoChange(tempChooseItem, balance, coins)
+			if err != nil {
+				return chooseItem, err
 			}
 
 			// *balance = *balance - elem.Price
@@ -56,10 +61,10 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 }
 
 func GetChooseItem(chooseItem []model.Item, goods []*model.Good, balance *int, coins []*model.Coin) ([]model.Item, []*model.Good, error) {
-	err := change.ValidateCanDoChange(chooseItem, balance, coins)
-	if err != nil {
-		return chooseItem, goods, err
-	}
+	// err := change.ValidateCanDoChange(chooseItem, balance, coins)
+	// if err != nil {
+	// 	return chooseItem, goods, err
+	// }
 
 	// empty outlet
 	chooseItem = make([]model.Item, 0)
