@@ -15,6 +15,7 @@ func Menu(goods []*model.Good, balance *int, chooseItem []model.Item) {
 	helper.Line()
 	amount.Menu(balance)
 	good.List(goods)
+	item.List(chooseItem)
 	helper.Line()
 
 	input := make([]int, 2)
@@ -28,7 +29,7 @@ func Menu(goods []*model.Good, balance *int, chooseItem []model.Item) {
 		Menu(goods, balance, chooseItem)
 	}
 	if (input)[0] == 2 {
-		item.UpdateChooseItem(chooseItem, goods, (input)[1])
+		chooseItem = item.UpdateChooseItem(chooseItem, goods, (input)[1])
 		fmt.Println("CHOSE ITEM IN MAIN MENU")
 		fmt.Println(chooseItem)
 		Menu(goods, balance, chooseItem)

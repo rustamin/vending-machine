@@ -24,8 +24,7 @@ func main() {
 	})
 
 	var balance int
-	// var chooseItem []string
-	chooseItem := make([]model.Item, 10)
+	chooseItem := make([]model.Item, 0)
 
 	mainmenu.Menu(goods, &balance, chooseItem)
 }
