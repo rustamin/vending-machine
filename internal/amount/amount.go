@@ -24,8 +24,13 @@ func UpdateAmountAndCoin(coins []*model.Coin, balance *int, input int) ([]*model
 	return coins, nil
 }
 
+// TODO: simplify update balance and deduct balance
 func updateBalance(balance *int, input int) {
 	*balance = *balance + input
+}
+
+func DeductBalance(balance *int, price int) {
+	*balance = *balance - price
 }
 
 func updateCoin(coins []*model.Coin, input int) []*model.Coin {

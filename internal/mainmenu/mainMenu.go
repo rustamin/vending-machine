@@ -34,7 +34,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 		fmt.Println(balance)
 		Menu(goods, coins, balance, chooseItem)
 	} else if (input)[0] == 2 {
-		chooseItem, err := item.UpdateChooseItem(chooseItem, goods, (input)[1], balance)
+		chooseItem, err := item.UpdateChooseItem(chooseItem, goods, (input)[1], balance, coins)
 		if err != nil {
 			fmt.Println(err)
 		}

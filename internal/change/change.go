@@ -51,7 +51,7 @@ func ValidateCanDoChange(chooseItem []model.Item, balance *int, coins []*model.C
 	}
 
 	if coins[0].Total < 9 || coins[2].Total < 4 {
-		return errors.New("Sorry cannot get item because coin return change bellow threshold. Please put in the exact amount of coin")
+		return errors.New("Sorry cannot choose/get item because coin return change bellow threshold. Please put in the exact amount of coin")
 	}
 
 	return nil
