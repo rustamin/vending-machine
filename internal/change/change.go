@@ -3,6 +3,7 @@ package change
 import (
 	"errors"
 	"fmt"
+	"strconv"
 
 	"github.com/rustamin/vending-machine/model"
 )
@@ -10,6 +11,33 @@ import (
 // func DoChange() {
 
 // }
+
+func List(coins []*model.Coin) {
+	list := "[Outlet]"
+	for i, elem := range coins {
+		validCoin := map[int]bool{
+			10:  true,
+			100: true,
+		}
+		if !validCoin[elem.Nominal] {
+			continue
+		}
+		var wordingChange string
+		if elem.Total == 0 {
+			wordingChange = "No change"
+		} else {
+			wordingChange = "Change"
+		}
+
+		if i == 0 {
+			list += "           " + strconv.Itoa(elem.Nominal) + "      " + wordingChange
+		} else {
+			list += "\n                   " + strconv.Itoa(elem.Nominal) + "     " + wordingChange
+		}
+	}
+
+	fmt.Println(list)
+}
 
 func ValidateCanDoChange(chooseItem []model.Item, balance *int, coins []*model.Coin) error {
 	// validate return, if not posible throw error

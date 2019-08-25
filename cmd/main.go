@@ -9,7 +9,7 @@ func main() {
 	coins := make([]*model.Coin, 0)
 	coins = append(coins, &model.Coin{
 		Nominal: 10,
-		Total:   0,
+		Total:   1,
 	})
 	coins = append(coins, &model.Coin{
 		Nominal: 50,

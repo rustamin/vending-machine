@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rustamin/vending-machine/internal/amount"
+	"github.com/rustamin/vending-machine/internal/change"
 	"github.com/rustamin/vending-machine/internal/good"
 	"github.com/rustamin/vending-machine/internal/helper"
 	"github.com/rustamin/vending-machine/internal/item"
@@ -14,6 +15,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 
 	helper.Line()
 	amount.Menu(balance)
+	change.List(coins)
 	good.List(goods)
 	item.List(chooseItem)
 	helper.Line()
