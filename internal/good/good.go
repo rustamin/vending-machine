@@ -22,6 +22,9 @@ func List(goods []*model.Good) {
 		} else {
 			list += "\n                   " + item
 		}
+		if elem.Stock == 0 {
+			list += "   Sold out"
+		}
 
 	}
 
