@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/rustamin/vending-machine/internal/change"
 	"github.com/rustamin/vending-machine/model"
 )
 
@@ -43,4 +44,13 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 		}
 	}
 	return chooseItem, nil
+}
+
+func GetChooseItem(chooseItem []model.Item, goods []*model.Good, balance *int, coins []*model.Coin) ([]model.Item, []*model.Good, error) {
+	err := change.ValidateCanDoChange(chooseItem, balance, coins)
+	if err != nil {
+		return chooseItem, goods, err
+	}
+
+	return chooseItem, goods, nil
 }

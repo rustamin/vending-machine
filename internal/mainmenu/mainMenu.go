@@ -31,14 +31,20 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 		fmt.Println("BALANCE IN MAIN MENU")
 		fmt.Println(balance)
 		Menu(goods, coins, balance, chooseItem)
-	}
-	if (input)[0] == 2 {
+	} else if (input)[0] == 2 {
 		chooseItem, err := item.UpdateChooseItem(chooseItem, goods, (input)[1], balance)
 		if err != nil {
 			fmt.Println(err)
 		}
 		fmt.Println("CHOSE ITEM IN MAIN MENU")
 		fmt.Println(chooseItem)
+		Menu(goods, coins, balance, chooseItem)
+	} else if (input)[0] == 3 {
+		// GET ITEM
+		chooseItem, goods, err := item.GetChooseItem(chooseItem, goods, balance, coins)
+		if err != nil {
+			fmt.Println(err)
+		}
 		Menu(goods, coins, balance, chooseItem)
 	}
 
