@@ -2,13 +2,12 @@ package change
 
 import (
 	"errors"
-	"fmt"
 	"strconv"
 
 	"github.com/rustamin/vending-machine/model"
 )
 
-func List(coins []*model.Coin) {
+func List(coins []*model.Coin) string {
 	list := "[Change]"
 	for i, elem := range coins {
 		validCoin := map[int]bool{
@@ -31,8 +30,7 @@ func List(coins []*model.Coin) {
 			list += "\n                   " + strconv.Itoa(elem.Nominal) + "     " + wordingChange
 		}
 	}
-
-	fmt.Println(list)
+	return list
 }
 
 func ValidateCanDoChange(chooseItem []model.Item, balance *int, coins []*model.Coin) error {
