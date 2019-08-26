@@ -1,7 +1,5 @@
 package helper
 
-import "fmt"
-
 func Padding(str string) string {
 	maxStrLenght := 16
 	space := 6
@@ -13,6 +11,6 @@ func Padding(str string) string {
 	return res
 }
 
-func Line() {
-	fmt.Println("-------------------------------------------------------")
+func Line() string {
+	return "-------------------------------------------------------"
 }
