@@ -9,7 +9,7 @@ func main() {
 	coins := make([]*model.Coin, 0)
 	coins = append(coins, &model.Coin{
 		Nominal: 10,
-		Total:   1,
+		Total:   10,
 	})
 	coins = append(coins, &model.Coin{
 		Nominal: 50,
@@ -17,7 +17,7 @@ func main() {
 	})
 	coins = append(coins, &model.Coin{
 		Nominal: 100,
-		Total:   0,
+		Total:   10,
 	})
 	coins = append(coins, &model.Coin{
 		Nominal: 500,
@@ -27,13 +27,13 @@ func main() {
 	goods := make([]*model.Good, 0)
 	goods = append(goods, &model.Good{
 		Name:  "Canned coffee",
-		Price: 120,
+		Price: 100,
 		Stock: 2,
 	})
 	goods = append(goods, &model.Good{
 		Name:  "Water PET bottle",
 		Price: 100,
-		Stock: 1,
+		Stock: 0,
 	})
 	goods = append(goods, &model.Good{
 		Name:  "Sport drinks",
