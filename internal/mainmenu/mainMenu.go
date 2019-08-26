@@ -14,13 +14,13 @@ import (
 
 func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []model.Item, returnCoins []model.Coin) {
 
-	helper.Line()
+	fmt.Println(helper.Line())
 	fmt.Println(amount.List(balance))
-	change.List(coins)
+	fmt.Println(change.List(coins))
 	returngate.List(returnCoins)
-	good.List(goods)
-	item.List(chooseItem)
-	helper.Line()
+	fmt.Println(good.List(goods))
+	fmt.Println(item.List(chooseItem))
+	fmt.Println(helper.Line())
 
 	input := make([]int, 2)
 	fmt.Print("Enter text: ")
