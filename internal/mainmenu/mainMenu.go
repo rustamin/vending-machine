@@ -17,6 +17,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 	helper.Line()
 	amount.Menu(balance)
 	change.List(coins)
+	returngate.List(returnCoins)
 	good.List(goods)
 	item.List(chooseItem)
 	helper.Line()
