@@ -18,7 +18,7 @@ func List(coinsToReturn []model.Coin) {
 		item := strconv.Itoa(elem.Nominal) + " JPY"
 
 		if i == 0 {
-			list += "   " + item
+			list += "      " + item
 		} else {
 			list += "\n                   " + item
 		}
@@ -55,4 +55,9 @@ func UpdateReturnGate(balance *int, coins []*model.Coin) ([]*model.Coin, []model
 	coins = reserveCoin
 
 	return coins, coinsToReturn
+}
+
+func GetReturn(returnCoins []model.Coin) []model.Coin {
+	returnCoins = make([]model.Coin, 0)
+	return returnCoins
 }

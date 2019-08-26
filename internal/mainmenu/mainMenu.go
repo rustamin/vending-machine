@@ -53,6 +53,10 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 	} else if (input)[0] == 4 {
 		coins, returnCoins := returngate.UpdateReturnGate(balance, coins)
 		Menu(goods, coins, balance, chooseItem, returnCoins)
+	} else if (input)[0] == 5 {
+		// coins, returnCoins :=
+		returnCoins = returngate.GetReturn(returnCoins)
+		Menu(goods, coins, balance, chooseItem, returnCoins)
 	}
 
 	fmt.Println("balance adlah")
