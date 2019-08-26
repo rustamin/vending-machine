@@ -2,15 +2,14 @@ package amount
 
 import (
 	"errors"
-	"fmt"
 	"strconv"
 
 	"github.com/rustamin/vending-machine/model"
 )
 
-func Menu(amount *int) {
+func List(amount *int) string {
 	msgAmount := "[Input amount]     " + strconv.Itoa(*amount) + " JPY"
-	fmt.Println(msgAmount)
+	return msgAmount
 }
 
 func UpdateAmountAndCoin(coins []*model.Coin, balance *int, input int) ([]*model.Coin, error) {
@@ -25,12 +24,14 @@ func UpdateAmountAndCoin(coins []*model.Coin, balance *int, input int) ([]*model
 }
 
 // TODO: simplify update balance and deduct balance
-func updateBalance(balance *int, input int) {
+func updateBalance(balance *int, input int) *int {
 	*balance = *balance + input
+	return balance
 }
 
-func DeductBalance(balance *int, price int) {
+func DeductBalance(balance *int, price int) *int {
 	*balance = *balance - price
+	return balance
 }
 
 func updateCoin(coins []*model.Coin, input int) []*model.Coin {
