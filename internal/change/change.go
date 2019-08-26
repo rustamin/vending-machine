@@ -13,7 +13,7 @@ import (
 // }
 
 func List(coins []*model.Coin) {
-	list := "[Outlet]"
+	list := "[Change]"
 	for i, elem := range coins {
 		validCoin := map[int]bool{
 			10:  true,
