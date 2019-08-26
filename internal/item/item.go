@@ -11,6 +11,11 @@ import (
 
 func List(chooseItem []model.Item) {
 	list := "[Outlet]"
+
+	if len(chooseItem) == 0 {
+		list += "           Empty"
+	}
+
 	for i, elem := range chooseItem {
 		if i == 0 {
 			list += "           " + elem.Name
