@@ -23,7 +23,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 	fmt.Println(helper.Line())
 
 	input := make([]int, 2)
-	fmt.Print("Enter text: ")
+	fmt.Print("Enter command: ")
 	fmt.Scanln(&input[0], &input[1])
 
 	if (input)[0] == 1 {
