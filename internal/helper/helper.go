@@ -11,7 +11,6 @@ func Padding(str string) string {
 		res += " "
 	}
 	return res
-
 }
 
 func Line() {

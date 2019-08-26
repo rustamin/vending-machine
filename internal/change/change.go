@@ -8,10 +8,6 @@ import (
 	"github.com/rustamin/vending-machine/model"
 )
 
-// func DoChange() {
-
-// }
-
 func List(coins []*model.Coin) {
 	list := "[Change]"
 	for i, elem := range coins {
@@ -40,9 +36,6 @@ func List(coins []*model.Coin) {
 }
 
 func ValidateCanDoChange(chooseItem []model.Item, balance *int, coins []*model.Coin) error {
-	// validate return, if not posible throw error
-	fmt.Println("chooseItemchooseItem")
-	fmt.Println(chooseItem)
 
 	totalChange := totalChange(chooseItem, balance)
 

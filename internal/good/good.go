@@ -6,7 +6,6 @@ import (
 
 	"github.com/rustamin/vending-machine/internal/helper"
 	"github.com/rustamin/vending-machine/model"
-	// "github.com/rustamin/vending-machine/model"
 )
 
 func List(goods []*model.Good) {
@@ -25,9 +24,7 @@ func List(goods []*model.Good) {
 		if elem.Stock == 0 {
 			list += "   Sold out"
 		}
-
 	}
 
 	fmt.Println(list)
-
 }

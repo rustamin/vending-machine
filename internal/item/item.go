@@ -31,7 +31,6 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 	item := new(model.Item)
 
 	for i, elem := range goods {
-
 		if i == input-1 {
 			// TODO: validate if good is not found
 			if *balance-elem.Price < 0 {
@@ -51,7 +50,6 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 				return chooseItem, err
 			}
 
-			// *balance = *balance - elem.Price
 			amount.DeductBalance(balance, elem.Price)
 			chooseItem = append(chooseItem, model.Item{
 				Name:  elem.Name,
