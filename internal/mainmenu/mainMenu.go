@@ -40,10 +40,7 @@ func Menu(goods []*model.Good, coins []*model.Coin, balance *int, chooseItem []m
 		Menu(goods, coins, balance, chooseItem, returnCoins)
 	} else if (input)[0] == 3 {
 		// GET ITEM
-		chooseItem, goods, err := item.GetChooseItem(chooseItem, goods, balance, coins)
-		if err != nil {
-			fmt.Println(err)
-		}
+		chooseItem := item.GetChooseItem(chooseItem)
 		Menu(goods, coins, balance, chooseItem, returnCoins)
 	} else if (input)[0] == 4 {
 		coins, returnCoins := returngate.UpdateReturnGate(balance, coins)

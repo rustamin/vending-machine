@@ -2,14 +2,13 @@ package item
 
 import (
 	"errors"
-	"fmt"
 
 	"github.com/rustamin/vending-machine/internal/amount"
 	"github.com/rustamin/vending-machine/internal/change"
 	"github.com/rustamin/vending-machine/model"
 )
 
-func List(chooseItem []model.Item) {
+func List(chooseItem []model.Item) string {
 	list := "[Outlet]"
 
 	if len(chooseItem) == 0 {
@@ -23,8 +22,7 @@ func List(chooseItem []model.Item) {
 			list += "\n                   " + elem.Name
 		}
 	}
-
-	fmt.Println(list)
+	return list
 }
 
 func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, balance *int, coins []*model.Coin) ([]model.Item, error) {
@@ -63,7 +61,7 @@ func UpdateChooseItem(chooseItem []model.Item, goods []*model.Good, input int, b
 	return chooseItem, nil
 }
 
-func GetChooseItem(chooseItem []model.Item, goods []*model.Good, balance *int, coins []*model.Coin) ([]model.Item, []*model.Good, error) {
+func GetChooseItem(chooseItem []model.Item) []model.Item {
 	// err := change.ValidateCanDoChange(chooseItem, balance, coins)
 	// if err != nil {
 	// 	return chooseItem, goods, err
@@ -71,5 +69,5 @@ func GetChooseItem(chooseItem []model.Item, goods []*model.Good, balance *int, c
 
 	// empty outlet
 	chooseItem = make([]model.Item, 0)
-	return chooseItem, goods, nil
+	return chooseItem
 }
