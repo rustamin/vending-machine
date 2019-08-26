@@ -1,14 +1,13 @@
 package good
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/rustamin/vending-machine/internal/helper"
 	"github.com/rustamin/vending-machine/model"
 )
 
-func List(goods []*model.Good) {
+func List(goods []*model.Good) string {
 	list := "[Items for sale]"
 
 	for i, elem := range goods {
@@ -25,6 +24,5 @@ func List(goods []*model.Good) {
 			list += "   Sold out"
 		}
 	}
-
-	fmt.Println(list)
+	return list
 }
